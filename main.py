@@ -1,5 +1,7 @@
 import inputMatrix
-print("Linear Algebra")
+import determinant
+
+from help import inputRules
 
 # options 
 
@@ -8,6 +10,8 @@ print("Linear Algebra")
 # 3 - Multiplication of matrix
 # 4 - Square of matrix
 # 5 - Determinant of matrix
+
+print("Linear Algebra")
 
 while True :
     print()
@@ -18,27 +22,47 @@ while True :
     print("3 -> Multiplication of matrix")
     print("4 -> Square of matrix")
     print("5 -> Determinant of matrix")
-    print("6 -> Help")
-    print("7 -> Settings")
+    print("6 -> Help ( How to use ? )")
+    print("7 -> Settings ( Comming Soon ) ")
     print("8 -> Exit program")
     print("-------------------------------")
-    ch = input("Enter your choice : ")
+    mainMenuChoice = input("Enter your choice : ")
 
-    if ch == "5" :
+    # Finding determinant of matrix
+    if mainMenuChoice == "5" :
         print("Please select the order of matrix")
         print("1 -> 2x2")
         print("2 -> 3x3")
-        ch = input("Enter youir choice :")
+        orderOfMatrixChoice = input("Enter youir choice :")
         
-        if ch == "1" :
-            mat = inputMatrix.orderTwo()
-            det = (mat[0][0] * mat[1][1] ) -  (mat[1][0] * mat[0][1] )
-
+        if orderOfMatrixChoice == "1" :
+            orderTwoMatrix = inputMatrix.orderTwo()
+            det = determinant.orderTwo(orderTwoMatrix)
             print("Determinant of given matrix is :")
             print(det)
-  
+
+        elif orderOfMatrixChoice == "2" :
+            orderThreeMatrix = inputMatrix.orderThree()
+            det = determinant.orderThree(orderThreeMatrix)
+            print("Determinant of give matrix is : ")
+            print(det)
+
+        else :
+            print("Invalid input ( Only order 2x2 and 3x3 is allowed )")
+
+    elif mainMenuChoice == "6" :
+        print("1 - Input Rules")
+        print("2 - Go back to Main Menu")
+
+        helpChoice = input("Enter your choice :")
+
+        if helpChoice == 1 :
+            inputRules()
+
+    elif mainMenuChoice == "7" :
+        print("Settings - Comming Soon")
     
-    elif ch == "8" :
+    elif mainMenuChoice == "8" :
         print("Thank you")
         break
     

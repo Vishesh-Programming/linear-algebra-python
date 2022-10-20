@@ -1,0 +1,15 @@
+def inputRules():
+    print()
+    print("-------Input Rules -----------")
+    print()
+    print("For Order Two Matrix")
+    print()
+    print("Two values seperated by space on first line")
+    print("Two values seperated by space on second line")
+    print()
+    print("For Order Three Matrix")
+    print()
+    print("Three values seperated by space on first line")
+    print("Three values seperated by space on second line")
+    print("Three values seperated by space on thrid line")
+    
