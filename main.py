@@ -1,5 +1,6 @@
 import inputMatrix
 import determinant
+import matrixOperations
 
 from help import inputRules
 
@@ -28,8 +29,45 @@ while True :
     print("-------------------------------")
     mainMenuChoice = input("Enter your choice : ")
 
+    if mainMenuChoice == "1" :
+        pass
+
+    elif mainMenuChoice == "2" :
+        pass
+
+    elif mainMenuChoice == "3" :
+        print("Please select the order of matrix")
+        print("1 -> 2x2")
+        print("2 -> 3x3")
+        
+        orderOfMatrixChoice = input("Enter youir choice :")
+        
+        if orderOfMatrixChoice == "1" :
+            
+            firstOrderTwoMatrix = inputMatrix.orderTwo()
+
+            secondOrderTwoMatrix = inputMatrix.orderTwo()
+
+            res = matrixOperations.multiply(firstOrderTwoMatrix , secondOrderTwoMatrix)
+
+            print(res)
+            
+            
+
+        elif orderOfMatrixChoice == "2" :
+            orderThreeMatrix = inputMatrix.orderThree()
+
+        else:
+            print("Invalid input")
+        
+       
+
+
+    elif mainMenuChoice == "4" :
+        pass
+
     # Finding determinant of matrix
-    if mainMenuChoice == "5" :
+    elif mainMenuChoice == "5" :
         print("Please select the order of matrix")
         print("1 -> 2x2")
         print("2 -> 3x3")
