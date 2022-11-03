@@ -4,20 +4,14 @@ import matrixOperations
 
 from help import inputRules
 
-# options
-
-# 1 - Addition of matrix
-# 2 - Subtraction of matrix
-# 3 - Multiplication of matrix
-# 4 - Square of matrix
-# 5 - Determinant of matrix
-
-print("Linear Algebra")
+print("Linear Algebra Problem Solver")
 
 while True:
     print()
     print("Operations available : ")
     print("-------------------------------")
+    print("0 -> Know input rules ( Important )")
+    print()
     print("1 -> Addition of matrix")
     print()
     print("2 -> Subtraction of matrix")
@@ -28,20 +22,23 @@ while True:
     print()
     print("5 -> Determinant of matrix")
     print()
-    print("6 -> Know input rules")
+    print("6 -> Settings ( Comming Soon ) ")
     print()
-    print("7 -> Settings ( Comming Soon ) ")
-    print()
-    print("8 -> Exit program")
+    print("7 -> Exit program")
     print("-------------------------------")
+
     mainMenuChoice = input("Enter your choice : ")
 
-    if mainMenuChoice == "1":
-        print("Please select the order of matrix")
-        print("1 -> 2x2")
-        print("2 -> 3x3")
+    print("Please select the order of matrix")
+    print("1 -> 2x2")
+    print("2 -> 3x3")
 
-        orderOfMatrixChoice = input("Enter youir choice :")
+    orderOfMatrixChoice = input("Enter youir choice :")
+
+    if mainMenuChoice == "0":
+        inputRules()
+
+    elif mainMenuChoice == "1":
 
         if orderOfMatrixChoice == "1":
 
@@ -49,98 +46,119 @@ while True:
             secondOrderTwoMatrix = inputMatrix.orderTwo()
             res = matrixOperations.addition(firstOrderTwoMatrix,
                                             secondOrderTwoMatrix)
-
-            print(res)
-
+            for i in res:
+                print(i)
+                
         elif orderOfMatrixChoice == "2":
+
             orderThreeMatrix = inputMatrix.orderThree()
+            secondOrderThreeMatrix = inputMatrix.orderThree()
+            res = matrixOperations.addition(orderThreeMatrix,
+                                            secondOrderThreeMatrix)
+            for i in res:
+                print(i)
+            
+        else:
+            print("Invalid Input")
 
     elif mainMenuChoice == "2":
-        pass
-
-    elif mainMenuChoice == "3":
-        print("Please select the order of matrix")
-        print("1 -> 2x2")
-        print("2 -> 3x3")
-
-        orderOfMatrixChoice = input("Enter youir choice :")
 
         if orderOfMatrixChoice == "1":
 
             firstOrderTwoMatrix = inputMatrix.orderTwo()
-
             secondOrderTwoMatrix = inputMatrix.orderTwo()
-
-            res = matrixOperations.multiply(firstOrderTwoMatrix,
-                                            secondOrderTwoMatrix)
+            res = matrixOperations.subtraction(firstOrderTwoMatrix,
+                                               secondOrderTwoMatrix)
 
             for i in res:
                 print(i)
-
+            
         elif orderOfMatrixChoice == "2":
-            orderThreeMatrix = inputMatrix.orderThree()
 
+            orderThreeMatrix = inputMatrix.orderThree()
+            secondOrderThreeMatrix = inputMatrix.orderThree()
+            res = matrixOperations.subtraction(orderThreeMatrix,
+                                               secondOrderThreeMatrix)
+
+            for i in res:
+                print(i)
+        
         else:
             print("Invalid input")
 
-    elif mainMenuChoice == "4":
-        print("Please select the order of matrix")
-        print("1 -> 2x2")
-        print("2 -> 3x3")
-
-        orderOfMatrixChoice = input("Enter youir choice :")
+    elif mainMenuChoice == "3":
 
         if orderOfMatrixChoice == "1":
 
             firstOrderTwoMatrix = inputMatrix.orderTwo()
+            secondOrderTwoMatrix = inputMatrix.orderTwo()
+            res = matrixOperations.multiply(firstOrderTwoMatrix,
+                                            secondOrderTwoMatrix)
+            for i in res:
+                print(i)
+                
+        elif orderOfMatrixChoice == "2":
 
-            
+            orderThreeMatrix = inputMatrix.orderThree()
+            secondOrderThreeMatrix = inputMatrix.orderThree()
+            res = matrixOperations.multiply(orderThreeMatrix,
+                                            secondOrderThreeMatrix)
 
+            for i in res:
+                print(i)
+                
+        else:
+            print("Invalid input")        
+    
+    elif mainMenuChoice == "4":
+
+        if orderOfMatrixChoice == "1":
+
+            firstOrderTwoMatrix = inputMatrix.orderTwo()
             res = matrixOperations.square(firstOrderTwoMatrix)
 
-            print(res)
-
+            for i in res:
+                print(i)
+                
         elif orderOfMatrixChoice == "2":
-            orderThreeMatrix = inputMatrix.orderThree()
 
+            firstOrderThreeMatrix = inputMatrix.orderThree()
+            res = matrixOperations.square(firstOrderTwoMatrix)
+
+            for i in res:
+                print(i)
+                
         else:
             print("Invalid input")
 
-    # Finding determinant of matrix
     elif mainMenuChoice == "5":
-        print("Please select the order of matrix")
-        print("1 -> 2x2")
-        print("2 -> 3x3")
-        orderOfMatrixChoice = input("Enter youir choice :")
 
         if orderOfMatrixChoice == "1":
-            orderTwoMatrix = inputMatrix.orderTwo()
-            det = determinant.orderTwo(orderTwoMatrix)
-            print("Determinant of given matrix is :")
-            print(det)
 
+            orderTwoMatrix = inputMatrix.orderTwo()
+            res = determinant.orderTwo(orderTwoMatrix)
+            print("Determinant of given matrix is :")
+
+            for i in res:
+                print(i)
+                
         elif orderOfMatrixChoice == "2":
+
             orderThreeMatrix = inputMatrix.orderThree()
-            det = determinant.orderThree(orderThreeMatrix)
+            res = determinant.orderThree(orderThreeMatrix)
             print("Determinant of give matrix is : ")
-            print(det)
+
+            for i in res :
+                print(i)
+            
 
         else:
             print("Invalid input ( Only order 2x2 and 3x3 is allowed )")
-
+        
     elif mainMenuChoice == "6":
-        print("1 - Input Rules")
-        print("2 - Go back to Main Menu")
-
-        helpChoice = input("Enter your choice :")
-
-        if helpChoice == "1":
-            inputRules()
-
-    elif mainMenuChoice == "7":
         print("Settings - Comming Soon")
 
-    elif mainMenuChoice == "8":
+    elif mainMenuChoice == "7":
         print("Thank you")
         break
 
